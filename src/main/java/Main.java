@@ -8,12 +8,19 @@ public class Main {
         while(true){
             System.out.print("$ " );
             String command = scan.nextLine();
-            String[] chaine = command.split(" ");
-            if(command.equals("exit"))
-                return ;
-            if(chaine[0].equals("echo")){
-                System.out.println(command.substring(command.indexOf(" ") + 1));
-            }else{
+
+            if(command.equals("exit")){
+
+                break ;
+
+            }
+            else if (input.startsWith("echo ")) {
+
+                System.out.println(input.substring(5));
+
+            }
+            else{
+
                 System.out.println(command + ": command not found");
 
             }  
