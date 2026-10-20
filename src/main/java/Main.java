@@ -1,48 +1,37 @@
 import java.util.Scanner;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Scanner scan = new Scanner(System.in);
 
-        while (true) {
-            System.out.print("$ ");
+        while(true){
+            System.out.print("$ " );
             String command = scan.nextLine();
 
-            String[] listeCom = command.split(" ", 2);
-            String nomCommande = listeCom[0];
+            if(command.equals("exit")){
 
-            if (nomCommande.equals("exit")) {
-                break;
-            }
-            else if (nomCommande.equals("echo")) {
-                System.out.println(listeCom.length > 1 ? listeCom[1] : "");
-            }
-            else if (nomCommande.equals("type")) {
-                if (listeCom.length < 2) {
-                    continue;
-                }
+                break ;
 
-                String cible = listeCom[1];
+            }
+            else if (command.startsWith("echo")) {
 
-                try {
-                    COM.valueOf(cible);
-                    System.out.println(cible + " is a shell builtin");
-                }
-                catch (IllegalArgumentException e) {
-                    System.out.println(cible + ": not found");
-                }
+                System.out.println(command.substring(5));
+
             }
-            else {
-                System.out.println(nomCommande + ": not found");
+            else if (text.contains("type")) {
+
+                if (argument.equals("echo") || argument.equals("type") || argument.equals("exit"))
+
+                    System.out.println(argument + " is a shell builtin");
+                    
+                else System.out.println(argument + ": not found");
             }
+            else{
+
+                System.out.println(command + ": command not found");
+
+            }  
         }
-
-        scan.close();
     }
-}
-
-enum COM {
-    echo,
-    exit,
-    type
 }
