@@ -9,6 +9,10 @@ public class Main {
             System.out.print("$ " );
             String command = scan.nextLine();
 
+            String[] parts = command.split(" ", 2);
+            String argument = parts.length > 1 ? parts[1] : "";
+
+
             if(command.equals("exit")){
 
                 break ;
@@ -19,12 +23,12 @@ public class Main {
                 System.out.println(command.substring(5));
 
             }
-            else if (text.contains("type")) {
+            else if (command.startsWith("type")) {
 
                 if (argument.equals("echo") || argument.equals("type") || argument.equals("exit"))
 
                     System.out.println(argument + " is a shell builtin");
-                    
+
                 else System.out.println(argument + ": not found");
             }
             else{
